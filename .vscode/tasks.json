@@ -37,6 +37,15 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Data.Tests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/DDD-Data-Test/DDD-Data-Test.csproj",
+            ]
         }
     ]
 }

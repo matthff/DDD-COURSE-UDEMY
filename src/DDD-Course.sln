@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Data", "DDD-Data\DDD-Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Service", "DDD-Service\DDD-Service.csproj", "{588CF35C-6566-4B8D-A020-6571284D74D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Data-Test", "DDD-Data-Test\DDD-Data-Test.csproj", "{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{588CF35C-6566-4B8D-A020-6571284D74D9}.Release|x64.Build.0 = Release|Any CPU
 		{588CF35C-6566-4B8D-A020-6571284D74D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{588CF35C-6566-4B8D-A020-6571284D74D9}.Release|x86.Build.0 = Release|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Debug|x64.Build.0 = Debug|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Debug|x86.Build.0 = Debug|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x64.ActiveCfg = Release|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x64.Build.0 = Release|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x86.ActiveCfg = Release|Any CPU
+		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
