@@ -46,6 +46,15 @@
                 "test",
                 "${workspaceFolder}/src/DDD-Data-Test/DDD-Data-Test.csproj",
             ]
+        },
+        {
+            "label": "Service.Tests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/DDD-Service-Test/DDD-Service-Test.csproj",
+            ]
         }
     ]
 }

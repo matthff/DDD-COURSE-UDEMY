@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Service", "DDD-Service\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Data-Test", "DDD-Data-Test\DDD-Data-Test.csproj", "{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Service-Test", "DDD-Service-Test\DDD-Service-Test.csproj", "{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +102,17 @@ Global
 		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x64.Build.0 = Release|Any CPU
 		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x86.ActiveCfg = Release|Any CPU
 		{E32E3C1E-0180-4956-BB6E-7A5D92266FEE}.Release|x86.Build.0 = Release|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Debug|x64.Build.0 = Debug|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Debug|x86.Build.0 = Debug|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Release|x64.ActiveCfg = Release|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Release|x64.Build.0 = Release|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{B2EB58D0-F0E9-4F44-B04E-E9CC2B1FADDA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

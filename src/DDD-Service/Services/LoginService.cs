@@ -42,7 +42,7 @@ namespace DDD_Service.Services
                     return new
                     {
                         authenticated = false,
-                        message = "Falha ao autenticar"
+                        message = "Failed to authenticate"
                     };
                 }
                 else
@@ -68,7 +68,7 @@ namespace DDD_Service.Services
                 return new
                 {
                     authenticated = false,
-                    message = "Falha ao autenticar"
+                    message = "Failed to authenticate"
                 };
             }
         }
