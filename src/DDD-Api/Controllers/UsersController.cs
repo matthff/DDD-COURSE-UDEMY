@@ -50,7 +50,7 @@ namespace DDD_Api.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
             try
             {
@@ -69,7 +69,7 @@ namespace DDD_Api.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
             try
             {
@@ -80,7 +80,7 @@ namespace DDD_Api.Controllers
                 }
                 else
                 {
-                    return BadRequest();
+                    return BadRequest(ModelState);
                 }
             }
             catch (ArgumentException e)
@@ -96,7 +96,7 @@ namespace DDD_Api.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
             try
             {
@@ -107,7 +107,7 @@ namespace DDD_Api.Controllers
                 }
                 else
                 {
-                    return BadRequest();
+                    return BadRequest(ModelState);
                 }
             }
             catch (ArgumentException e)
