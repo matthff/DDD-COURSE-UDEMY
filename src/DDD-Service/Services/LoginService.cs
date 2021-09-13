@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
-using DDD_Domain.DTOs;
+using DDD_Domain.DTOs.Login;
 using DDD_Domain.Entities;
 using DDD_Domain.Interfaces.Repository;
 using DDD_Domain.Interfaces.Services;
@@ -17,17 +17,14 @@ namespace DDD_Service.Services
     {
         private IUserRepository _repository;
         public SigningConfigurations _signingConfigurations;
-        public TokenConfiguration _tokenConfigurations;
         private IConfiguration _configuration { get; }
 
         public LoginService(IUserRepository repository,
                             SigningConfigurations signingConfigurations,
-                            TokenConfiguration tokenConfigurations,
                             IConfiguration configuration)
         {
             _repository = repository;
             _signingConfigurations = signingConfigurations;
-            _tokenConfigurations = tokenConfigurations;
             _configuration = configuration;
         }
 
@@ -56,7 +53,7 @@ namespace DDD_Service.Services
                     );
 
                     DateTime createDate = DateTime.UtcNow;
-                    DateTime expirationDate = createDate + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
+                    DateTime expirationDate = createDate + TimeSpan.FromSeconds(Convert.ToInt32(Environment.GetEnvironmentVariable("TOKEN_EXPIRATION_TIME")));
 
                     var handler = new JwtSecurityTokenHandler();
                     string token = CreateToken(identity, createDate, expirationDate, handler);
@@ -77,8 +74,8 @@ namespace DDD_Service.Services
         {
             var securityToken = handler.CreateToken(new SecurityTokenDescriptor
             {
-                Issuer = _tokenConfigurations.Issuer,
-                Audience = _tokenConfigurations.Audience,
+                Issuer = Environment.GetEnvironmentVariable("TOKEN_ISSUER"),
+                Audience = Environment.GetEnvironmentVariable("TOKEN_AUDIENCE"),
                 SigningCredentials = _signingConfigurations.SigningCredentials,
                 Subject = identity,
                 NotBefore = createDate,

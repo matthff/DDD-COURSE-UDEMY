@@ -25,16 +25,28 @@ namespace DDD_Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IWebHostEnvironment _environment;
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            _environment = environment;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (_environment.IsEnvironment("Testing"))
+            {
+                Environment.SetEnvironmentVariable("DB_PROVIDER", "MYSQL");
+                Environment.SetEnvironmentVariable("DB_CONNECTION_STRING", "Persist Security Info=True;Server=localhost;Port=3306;Database=DDD-DB-Udemy-Course-Integration;Uid=root;Pwd=451236");
+                Environment.SetEnvironmentVariable("MIGRATION_STATUS", "APLICAR");
+                Environment.SetEnvironmentVariable("TOKEN_AUDIENCE", "ExemploAudience");
+                Environment.SetEnvironmentVariable("TOKEN_ISSUER", "ExemploIssuer");
+                Environment.SetEnvironmentVariable("TOKEN_EXPIRATION_TIME", "28880");
+            }
+
             services.AddControllers();
 
             ConfigureService.ConfigureDependenciesServices(services);
@@ -53,9 +65,9 @@ namespace DDD_Api
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
 
-            var tokenConfigurations = new TokenConfiguration();
-            new ConfigureFromConfigurationOptions<TokenConfiguration>(Configuration.GetSection("TokenConfigurations")).Configure(tokenConfigurations);
-            services.AddSingleton(tokenConfigurations);
+            // var tokenConfigurations = new TokenConfiguration();
+            // new ConfigureFromConfigurationOptions<TokenConfiguration>(Configuration.GetSection("TokenConfigurations")).Configure(tokenConfigurations);
+            // services.AddSingleton(tokenConfigurations);
 
             services.AddAuthentication(authOptions =>
             {
@@ -65,8 +77,8 @@ namespace DDD_Api
             {
                 var paramsValidation = bearerOptions.TokenValidationParameters;
                 paramsValidation.IssuerSigningKey = signingConfigurations.Key;
-                paramsValidation.ValidAudience = tokenConfigurations.Audience;
-                paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
+                paramsValidation.ValidAudience = Environment.GetEnvironmentVariable("TOKEN_AUDIENCE");
+                paramsValidation.ValidIssuer = Environment.GetEnvironmentVariable("TOKEN_ISSUER");
 
                 // Valida a assinatura de um token recebido
                 paramsValidation.ValidateIssuerSigningKey = true;

@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using DDD_Api.Controllers;
-using DDD_Domain.DTOs;
+using DDD_Domain.DTOs.Login;
 using DDD_Domain.DTOs.User;
 using DDD_Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;

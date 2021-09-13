@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using DDD_Domain.DTOs;
+using DDD_Domain.DTOs.Login;
 
 namespace DDD_Domain.Interfaces.Services
 {

@@ -1,20 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>DDD_Api</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1"/>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9"/>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\DDD-Domain\DDD-Domain.csproj" />
-    <ProjectReference Include="..\DDD-Service\DDD-Service.csproj" />
-    <ProjectReference Include="..\DDD-CrossCutting\DDD-CrossCutting.csproj" />
+    <ProjectReference Include="..\DDD-Domain\DDD-Domain.csproj"/>
+    <ProjectReference Include="..\DDD-Service\DDD-Service.csproj"/>
+    <ProjectReference Include="..\DDD-CrossCutting\DDD-CrossCutting.csproj"/>
   </ItemGroup>
-
 </Project>
