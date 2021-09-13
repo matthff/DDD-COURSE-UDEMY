@@ -44,8 +44,9 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/src/DDD-Data-Test/DDD-Data-Test.csproj",
-            ]
+                "${workspaceFolder}/src/DDD-Data-Test/DDD-Data-Test.csproj"
+            ],
+            "problemMatcher": []
         },
         {
             "label": "Service.Tests",
@@ -53,7 +54,7 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/src/DDD-Service-Test/DDD-Service-Test.csproj",
+                "${workspaceFolder}/src/DDD-Service-Test/DDD-Service-Test.csproj"
             ]
         },
         {
@@ -62,7 +63,16 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/src/DDD-Api-Test/DDD-Api-Test.csproj",
+                "${workspaceFolder}/src/DDD-Api-Test/DDD-Api-Test.csproj"
+            ]
+        },
+        {
+            "label": "Integration.Tests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/src/DDD-Integration-Test/DDD-Integration-Test.csproj"
             ]
         }
     ]

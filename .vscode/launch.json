@@ -22,8 +22,11 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "DB_PROVIDER": "MYSQL",
-                "DB_CONNECTION_STRING": "Server=localhost;Port=3306;Database=DDD-DB-Udemy-Course;Uid=root;Pwd=451236",
-                "MIGRATION_STATUS": "APLICAR"
+                "DB_CONNECTION_STRING": "Persist Security Info=True;Server=localhost;Port=3306;Database=DDD-DB-Udemy-Course;Uid=root;Pwd=451236",
+                "MIGRATION_STATUS": "APLICAR",
+                "TOKEN_AUDIENCE": "ExemploAudience",
+                "TOKEN_ISSUER": "ExemploIssuer",
+                "TOKEN_EXPIRATION_TIME": "28880"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
