@@ -54,7 +54,14 @@ namespace DDD_Api.Controllers
             }
             try
             {
-                return Ok(await _service.Get(id));
+                //BUG: Find out why result starts as null and then a userDTO is created with default values
+                var result = await _service.Get(id);
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
             }
             catch (ArgumentException e)
             {
