@@ -1,4 +1,5 @@
 using DDD_Data.Mapping;
+using DDD_Data.Seeds;
 using DDD_Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,12 @@ namespace DDD_Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+            modelBuilder.Entity<UfEntity>(new UfMap().Configure);
+            modelBuilder.Entity<CityEntity>(new CityMap().Configure);
+            modelBuilder.Entity<PostalCodeEntity>(new PostalCodeMap().Configure);
+
 
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity
@@ -26,6 +32,8 @@ namespace DDD_Data.Context
                     UpdatedAt = System.DateTime.UtcNow
                 }
             );
+
+            UfSeeds.Ufs(modelBuilder);
         }
     }
 }
