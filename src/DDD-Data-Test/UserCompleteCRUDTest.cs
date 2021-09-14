@@ -19,9 +19,9 @@ namespace DDD_Data_Test
         }
 
 
-        [Fact(DisplayName = "CRUD de Usuário")]
+        [Fact(DisplayName = "User CRUD operations")]
         [Trait("CRUD", "UserEntity")]
-        public async Task E_Possivel_Realizar_CRUD_Usuario()
+        public async Task IsPossibleCRUDInUserDatabase()
         {
             using (var context = _serviceProvider.GetService<MySQLContext>())
             {
