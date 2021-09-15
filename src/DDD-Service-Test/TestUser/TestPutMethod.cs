@@ -28,8 +28,8 @@ namespace DDD_Service_Test.TestUser
 
             var updateResult = await _service.Put(userUpdateDTO);
             Assert.NotNull(updateResult);
-            Assert.Equal(UserName, updateResult.Name);
-            Assert.Equal(UserEmail, updateResult.Email);
+            Assert.Equal(UserNameUpdated, updateResult.Name);
+            Assert.Equal(UserEmailUpdated, updateResult.Email);
         }
     }
 }

@@ -4,24 +4,24 @@ using DDD_Domain.Interfaces.Services;
 using Moq;
 using Xunit;
 
-namespace DDD_Service_Test.TestUser
+namespace DDD_Service_Test.TestCity
 {
-    public class TestDeleteMethod : UserMock
+    public class TestDeleteMethod : CityMock
     {
-        private IUserService _service;
-        private Mock<IUserService> _serviceMock;
+        private ICityService _service;
+        private Mock<ICityService> _serviceMock;
 
         [Fact(DisplayName = "Delete Request executed successfully")]
         public async Task MustExecuteDeleteMethod()
         {
-            _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Delete(UserId)).ReturnsAsync(true);
+            _serviceMock = new Mock<ICityService>();
+            _serviceMock.Setup(m => m.Delete(CityId)).ReturnsAsync(true);
             _service = _serviceMock.Object;
 
-            var deletado = await _service.Delete(UserId);
-            Assert.True(deletado);
+            var result = await _service.Delete(CityId);
+            Assert.True(result);
 
-            _serviceMock = new Mock<IUserService>();
+            _serviceMock = new Mock<ICityService>();
             _serviceMock.Setup(m => m.Delete(It.IsAny<Guid>())).ReturnsAsync(false);
             _service = _serviceMock.Object;
 

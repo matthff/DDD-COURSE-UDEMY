@@ -47,28 +47,32 @@ namespace DDD_Service_Test.TestUser
                 CreatedAt = DateTime.UtcNow
             };
 
-            userCreateDTO = new UserCreateDTO{
+            userCreateDTO = new UserCreateDTO
+            {
                 Name = UserName,
                 Email = UserEmail,
             };
 
-            userUpdateDTO = new UserUpdateDTO{
+            userUpdateDTO = new UserUpdateDTO
+            {
                 Id = UserId,
-                Name = UserName,
-                Email = UserEmail,
+                Name = UserNameUpdated,
+                Email = UserEmailUpdated,
             };
 
-            userCreateResultDTO = new UserCreateResultDTO{
+            userCreateResultDTO = new UserCreateResultDTO
+            {
                 Id = UserId,
                 Name = UserName,
                 Email = UserEmail,
                 CreatedAt = DateTime.UtcNow
             };
 
-            userUpdateResultDTO = new UserUpdateResultDTO{
+            userUpdateResultDTO = new UserUpdateResultDTO
+            {
                 Id = UserId,
-                Name = UserName,
-                Email = UserEmail,
+                Name = UserNameUpdated,
+                Email = UserEmailUpdated,
                 UpdatedAt = DateTime.UtcNow
             };
         }

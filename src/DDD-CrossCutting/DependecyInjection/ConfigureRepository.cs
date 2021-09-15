@@ -13,6 +13,9 @@ namespace DDD_CrossCutting.DependecyInjection
         {
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserRepository>();
+            serviceCollection.AddScoped<IUfRepository, UfRepository>();
+            serviceCollection.AddScoped<ICityRepository, CityRepository>();
+            serviceCollection.AddScoped<IPostalCodeRepository, PostalCodeRepository>();
 
             if (Environment.GetEnvironmentVariable("DB_PROVIDER").ToLower() == "MYSQL".ToLower())
             {

@@ -8,7 +8,17 @@ namespace DDD_CrossCutting.Mapping
     {
         public ModelToEntityProfile()
         {
+            //User
             CreateMap<UserModel, UserEntity>().ReverseMap();
+
+            //Uf
+            CreateMap<UfModel, UfEntity>().ReverseMap();
+
+            //City
+            CreateMap<CityModel, CityEntity>().ReverseMap();
+
+            //PostalCode
+            CreateMap<PostalCodeModel, PostalCodeEntity>().ReverseMap();
         }
     }
 }
