@@ -15,6 +15,21 @@ namespace DDD_Data.Repository
             _dataset = context.Set<PostalCodeEntity>();
         }
 
+        public async override Task<PostalCodeEntity> FindByIdAsync(Guid id)
+        {
+            try
+            {
+                return await _dataset.Include(p => p.City)
+                                     .ThenInclude(p => p.Uf)
+                                     .FirstOrDefaultAsync(p => p.Id.Equals(id));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public async Task<PostalCodeEntity> FindByPostalCode(string postalCode)
         {
             try

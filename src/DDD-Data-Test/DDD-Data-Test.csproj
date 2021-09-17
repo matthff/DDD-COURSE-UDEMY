@@ -22,4 +22,9 @@
     <ProjectReference Include="..\DDD-CrossCutting\DDD-CrossCutting.csproj"/>
     <ProjectReference Include="..\DDD-Domain\DDD-Domain.csproj"/>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="xunit.runner.json"> 
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

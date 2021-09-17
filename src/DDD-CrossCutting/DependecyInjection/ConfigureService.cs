@@ -10,6 +10,9 @@ namespace DDD_CrossCutting.DependecyInjection
         {
             serviceCollection.AddTransient<IUserService, UserService>();
             serviceCollection.AddTransient<ILoginService, LoginService>();
+            serviceCollection.AddTransient<IUfService, UfService>();
+            serviceCollection.AddTransient<ICityService, CityService>();
+            serviceCollection.AddTransient<IPostalCodeService, PostalCodeService>();
         }
     }
 }

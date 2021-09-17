@@ -27,7 +27,7 @@ namespace DDD_Service.Services
             return _mapper.Map<IEnumerable<CityDTO>>(listEntity);
         }
 
-        public async Task<CityDTO> Get(Guid id)
+        public async Task<CityDTO> GetById(Guid id)
         {
             var entity = await _repository.FindByIdAsync(id);
             return _mapper.Map<CityDTO>(entity);

@@ -23,7 +23,7 @@ namespace DDD_Api_Test.UsersControllerTest.GETALL
             var email = Faker.Internet.Email();
 
             _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Get()).ReturnsAsync(
+            _serviceMock.Setup(m => m.GetAll()).ReturnsAsync(
                 new List<UserDTO>
                 {
                     new UserDTO
@@ -44,7 +44,7 @@ namespace DDD_Api_Test.UsersControllerTest.GETALL
             );
 
             _controller = new UsersController(_serviceMock.Object);
-            var result = await _controller.Get();
+            var result = await _controller.GetAll();
             Assert.True(result is OkObjectResult);
 
             var resultValue = ((OkObjectResult)result).Value as IEnumerable<UserDTO>;

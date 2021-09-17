@@ -7,7 +7,7 @@ namespace DDD_Domain.Interfaces.Services
 {
     public interface ICityService
     {
-        Task<CityDTO> Get(Guid id);
+        Task<CityDTO> GetById(Guid id);
         Task<CityCompleteDTO> GetCompleteById(Guid id);
         Task<CityCompleteDTO> GetCompleteByIBGE(int ibgeCode);
         Task<IEnumerable<CityDTO>> GetAll();

@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using DDD_Domain.DTOs.User;
-using DDD_Domain.Entities;
 using DDD_Domain.Interfaces.Services;
-using DDD_Service.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DDD_Api.Controllers
@@ -24,17 +19,17 @@ namespace DDD_Api.Controllers
             _service = service;
         }
 
-        // GET: api/Users
+        // GET: api/users
         [Authorize("Bearer")]
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             //Valida se o modelo do dado de input, caso não retorna um BadRequest(400)
             if (!ModelState.IsValid)
                 return BadRequest(ModelState); //400
             try
             {
-                return Ok(await _service.Get());
+                return Ok(await _service.GetAll());
             }
             catch (ArgumentException e)
             {
@@ -42,11 +37,11 @@ namespace DDD_Api.Controllers
             }
         }
 
-        // GET: api/Users/5
+        // GET: api/users/{id}
         [Authorize("Bearer")]
         [HttpGet]
-        [Route("{id}", Name = "GetWithId")]
-        public async Task<IActionResult> Get(Guid id)
+        [Route("{id}", Name = "GetUserWithId")]
+        public async Task<IActionResult> GetById(Guid id)
         {
             if (!ModelState.IsValid)
             {
@@ -54,8 +49,7 @@ namespace DDD_Api.Controllers
             }
             try
             {
-                //BUG: Find out why result starts as null and then a userDTO is created with default values
-                var result = await _service.Get(id);
+                var result = await _service.GetById(id);
                 if (result == null)
                 {
                     return NotFound();
@@ -69,8 +63,8 @@ namespace DDD_Api.Controllers
             }
         }
 
-        // POST: api/Users
-        [Authorize("Bearer")]
+        // POST: api/users
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] UserCreateDTO user)
         {
@@ -83,7 +77,7 @@ namespace DDD_Api.Controllers
                 var result = await _service.Post(user);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
+                    return Created(new Uri(Url.Link("GetUserWithId", new { id = result.Id })), result);
                 }
                 else
                 {
@@ -96,7 +90,7 @@ namespace DDD_Api.Controllers
             }
         }
 
-        // PUT: api/Users/5
+        // PUT: api/users/{id}
         [Authorize("Bearer")]
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UserUpdateDTO user)
@@ -123,7 +117,7 @@ namespace DDD_Api.Controllers
             }
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/users/{id}
         [Authorize("Bearer")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)

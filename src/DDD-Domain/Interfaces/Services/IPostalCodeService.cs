@@ -7,8 +7,8 @@ namespace DDD_Domain.Interfaces.Services
 {
     public interface IPostalCodeService
     {
-        Task<PostalCodeDTO> Get(Guid id);
-        Task<PostalCodeDTO> Get(string postalCode);
+        Task<PostalCodeDTO> GetById(Guid id);
+        Task<PostalCodeDTO> GetByPostalCode(string postalCode);
         Task<PostalCodeCreateResultDTO> Post(PostalCodeCreateDTO postalCode);
         Task<PostalCodeUpdateResultDTO> Put(PostalCodeUpdateDTO postalCode);
         Task<bool> Delete(Guid id);        

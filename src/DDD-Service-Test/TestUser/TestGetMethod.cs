@@ -17,19 +17,19 @@ namespace DDD_Service_Test.TestUser
         [Fact(DisplayName = "GET By Id Request executed successfully")]
         public async Task MustExecuteGETMethod(){
             _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Get(UserId)).ReturnsAsync(userDTO);
+            _serviceMock.Setup(m => m.GetById(UserId)).ReturnsAsync(userDTO);
             _service = _serviceMock.Object;
 
-            var result = await _service.Get(UserId);
+            var result = await _service.GetById(UserId);
             Assert.NotNull(result);
             Assert.True(result.Id == UserId);
             Assert.Equal(UserName, result.Name);
 
             _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Get(It.IsAny<Guid>())).Returns(Task.FromResult((UserDTO)null));
+            _serviceMock.Setup(m => m.GetById(It.IsAny<Guid>())).Returns(Task.FromResult((UserDTO)null));
             _service = _serviceMock.Object;
 
-            var record = await _service.Get(UserId);
+            var record = await _service.GetById(UserId);
             Assert.Null(record);
         }
 
@@ -38,18 +38,18 @@ namespace DDD_Service_Test.TestUser
             var userList = new List<UserDTO>();
             
             _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Get()).ReturnsAsync(listUserDTO);
+            _serviceMock.Setup(m => m.GetAll()).ReturnsAsync(listUserDTO);
             _service = _serviceMock.Object;
 
-            var result = await _service.Get();
+            var result = await _service.GetAll();
             Assert.NotNull(result);
             Assert.True(result.Count() == 10);
 
             _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Get()).ReturnsAsync(userList.AsEnumerable);
+            _serviceMock.Setup(m => m.GetAll()).ReturnsAsync(userList.AsEnumerable);
             _service = _serviceMock.Object;
 
-            var resultEmpty = await _service.Get();
+            var resultEmpty = await _service.GetAll();
             Assert.Empty(resultEmpty);
             Assert.True(resultEmpty.Count() == 0);
         }

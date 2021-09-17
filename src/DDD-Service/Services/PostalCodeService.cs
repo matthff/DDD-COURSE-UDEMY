@@ -20,13 +20,13 @@ namespace DDD_Service.Services
             _mapper = mapper;
         }
 
-        public async Task<PostalCodeDTO> Get(Guid id)
+        public async Task<PostalCodeDTO> GetById(Guid id)
         {
             var entity = await _repository.FindByIdAsync(id);
             return _mapper.Map<PostalCodeDTO>(entity);
         }
 
-        public async Task<PostalCodeDTO> Get(string postalCode)
+        public async Task<PostalCodeDTO> GetByPostalCode(string postalCode)
         {
             var entity = await _repository.FindByPostalCode(postalCode);
             return _mapper.Map<PostalCodeDTO>(entity);
@@ -45,7 +45,7 @@ namespace DDD_Service.Services
         {
             var model = _mapper.Map<PostalCodeModel>(postalCode);
             var entity = _mapper.Map<PostalCodeEntity>(model);
-            var result = await _repository.CreateAsync(entity);
+            var result = await _repository.UpdateAsync(entity);
 
             return _mapper.Map<PostalCodeUpdateResultDTO>(result);
         }

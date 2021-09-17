@@ -25,7 +25,7 @@ namespace DDD_Service.Services
             return _mapper.Map<IEnumerable<UfDTO>>(entity);
         }
 
-        public async Task<UfDTO> Get(Guid id)
+        public async Task<UfDTO> GetById(Guid id)
         {
             var entity = await _repository.FindByIdAsync(id);
             return _mapper.Map<UfDTO>(entity);

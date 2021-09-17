@@ -18,20 +18,20 @@ namespace DDD_Service_Test.TestUf
         public async Task MustExecuteGETMethod()
         {
             _serviceMock = new Mock<IUfService>();
-            _serviceMock.Setup(m => m.Get(UfId)).ReturnsAsync(ufDTO);
+            _serviceMock.Setup(m => m.GetById(UfId)).ReturnsAsync(ufDTO);
             _service = _serviceMock.Object;
 
-            var result = await _service.Get(UfId);
+            var result = await _service.GetById(UfId);
             Assert.NotNull(result);
             Assert.Equal(result.Id, UfId);
             Assert.Equal(result.FederatedUnit, UfFederatedUnit);
             Assert.Equal(result.Name, UfName);
 
             _serviceMock = new Mock<IUfService>();
-            _serviceMock.Setup(m => m.Get(It.IsAny<Guid>())).Returns(Task.FromResult((UfDTO)null));
+            _serviceMock.Setup(m => m.GetById(It.IsAny<Guid>())).Returns(Task.FromResult((UfDTO)null));
             _service = _serviceMock.Object;
 
-            var record = await _service.Get(UfId);
+            var record = await _service.GetById(UfId);
             Assert.Null(record);
         }
 

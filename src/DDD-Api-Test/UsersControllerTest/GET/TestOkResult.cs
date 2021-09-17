@@ -21,7 +21,7 @@ namespace DDD_Api_Test.UsersControllerTest.GET
             var email = Faker.Internet.Email();
 
             _serviceMock = new Mock<IUserService>();
-            _serviceMock.Setup(m => m.Get(It.IsAny<Guid>())).ReturnsAsync(
+            _serviceMock.Setup(m => m.GetById(It.IsAny<Guid>())).ReturnsAsync(
                 new UserDTO
                 {
                     Id = Guid.NewGuid(),
@@ -32,7 +32,7 @@ namespace DDD_Api_Test.UsersControllerTest.GET
             );
 
             _controller = new UsersController(_serviceMock.Object);
-            var result = await _controller.Get(Guid.NewGuid());
+            var result = await _controller.GetById(Guid.NewGuid());
             Assert.True(result is OkObjectResult);
 
             var resultValue = ((OkObjectResult)result).Value as UserDTO;

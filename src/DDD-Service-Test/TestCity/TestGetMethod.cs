@@ -18,10 +18,10 @@ namespace DDD_Service_Test.TestCity
         public async Task MustExecuteGETByIdMethod()
         {
             _serviceMock = new Mock<ICityService>();
-            _serviceMock.Setup(m => m.Get(CityId)).ReturnsAsync(cityDTO);
+            _serviceMock.Setup(m => m.GetById(CityId)).ReturnsAsync(cityDTO);
             _service = _serviceMock.Object;
 
-            var result = await _service.Get(CityId);
+            var result = await _service.GetById(CityId);
             Assert.NotNull(result);
             Assert.Equal(result.Id, CityId);
             Assert.Equal(result.Name, CityName);
@@ -29,10 +29,10 @@ namespace DDD_Service_Test.TestCity
             Assert.Equal(result.UfId, CityUfId);
 
             _serviceMock = new Mock<ICityService>();
-            _serviceMock.Setup(m => m.Get(It.IsAny<Guid>())).Returns(Task.FromResult((CityDTO)null));
+            _serviceMock.Setup(m => m.GetById(It.IsAny<Guid>())).Returns(Task.FromResult((CityDTO)null));
             _service = _serviceMock.Object;
 
-            var record = await _service.Get(Guid.NewGuid());
+            var record = await _service.GetById(Guid.NewGuid());
             Assert.Null(record);
         }
 

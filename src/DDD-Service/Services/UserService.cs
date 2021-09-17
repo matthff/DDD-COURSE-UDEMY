@@ -21,13 +21,13 @@ namespace DDD_Service.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<UserDTO>> Get()
+        public async Task<IEnumerable<UserDTO>> GetAll()
         {
             var listEntity = await _repository.FindAllAsync();
             return _mapper.Map<IEnumerable<UserDTO>>(listEntity);
         }
 
-        public async Task<UserDTO> Get(Guid id)
+        public async Task<UserDTO> GetById(Guid id)
         {
             var entity = await _repository.FindByIdAsync(id);
             return _mapper.Map<UserDTO>(entity);

@@ -100,7 +100,7 @@ namespace DDD_Data.Repository
             }
         }
 
-        public async Task<T> FindByIdAsync(Guid id)
+        public virtual async Task<T> FindByIdAsync(Guid id)
         {
             try
             {

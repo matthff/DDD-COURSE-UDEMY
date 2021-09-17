@@ -1,12 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using DDD_Domain.DTOs.Login;
 using DDD_Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DDD_Api.Controllers
@@ -15,6 +12,7 @@ namespace DDD_Api.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        //POST: api/login
         [AllowAnonymous]
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDTO loginDto, [FromServices] ILoginService service)

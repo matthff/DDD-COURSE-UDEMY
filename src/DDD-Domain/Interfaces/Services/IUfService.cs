@@ -7,7 +7,7 @@ namespace DDD_Domain.Interfaces.Services
 {
     public interface IUfService
     {
-        Task<UfDTO> Get(Guid id);
+        Task<UfDTO> GetById(Guid id);
         Task<IEnumerable<UfDTO>> GetAll();
     }
 }

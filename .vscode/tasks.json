@@ -64,7 +64,8 @@
             "args": [
                 "test",
                 "${workspaceFolder}/src/DDD-Api-Test/DDD-Api-Test.csproj"
-            ]
+            ],
+            "problemMatcher": []
         },
         {
             "label": "Integration.Tests",
@@ -74,6 +75,6 @@
                 "test",
                 "${workspaceFolder}/src/DDD-Integration-Test/DDD-Integration-Test.csproj"
             ]
-        }
+        },
     ]
 }

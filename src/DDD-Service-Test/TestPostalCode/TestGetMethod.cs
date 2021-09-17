@@ -18,10 +18,10 @@ namespace DDD_Service_Test.TestPostalCode
         public async Task MustExecuteGETByIdMethod()
         {
             _serviceMock = new Mock<IPostalCodeService>();
-            _serviceMock.Setup(m => m.Get(PostalCodeId)).ReturnsAsync(postalCodeDTO);
+            _serviceMock.Setup(m => m.GetById(PostalCodeId)).ReturnsAsync(postalCodeDTO);
             _service = _serviceMock.Object;
 
-            var result = await _service.Get(PostalCodeId);
+            var result = await _service.GetById(PostalCodeId);
             Assert.NotNull(result);
             Assert.Equal(result.Id, PostalCodeId);
             Assert.Equal(result.PostalCode, PostalCodeZip);
@@ -32,10 +32,10 @@ namespace DDD_Service_Test.TestPostalCode
 
 
             _serviceMock = new Mock<IPostalCodeService>();
-            _serviceMock.Setup(m => m.Get(It.IsAny<Guid>())).Returns(Task.FromResult((PostalCodeDTO)null));
+            _serviceMock.Setup(m => m.GetById(It.IsAny<Guid>())).Returns(Task.FromResult((PostalCodeDTO)null));
             _service = _serviceMock.Object;
 
-            var record = await _service.Get(PostalCodeId);
+            var record = await _service.GetById(PostalCodeId);
             Assert.Null(record);
         }
 
@@ -43,10 +43,10 @@ namespace DDD_Service_Test.TestPostalCode
         public async Task MustExecuteGETByPostalCodeMethod()
         {
             _serviceMock = new Mock<IPostalCodeService>();
-            _serviceMock.Setup(m => m.Get(PostalCodeZip)).ReturnsAsync(postalCodeDTO);
+            _serviceMock.Setup(m => m.GetByPostalCode(PostalCodeZip)).ReturnsAsync(postalCodeDTO);
             _service = _serviceMock.Object;
 
-            var result = await _service.Get(PostalCodeZip);
+            var result = await _service.GetByPostalCode(PostalCodeZip);
             Assert.NotNull(result);
             Assert.Equal(result.Id, PostalCodeId);
             Assert.Equal(result.PostalCode, PostalCodeZip);
@@ -57,10 +57,10 @@ namespace DDD_Service_Test.TestPostalCode
 
 
             _serviceMock = new Mock<IPostalCodeService>();
-            _serviceMock.Setup(m => m.Get(It.IsAny<string>())).Returns(Task.FromResult((PostalCodeDTO)null));
+            _serviceMock.Setup(m => m.GetByPostalCode(It.IsAny<string>())).Returns(Task.FromResult((PostalCodeDTO)null));
             _service = _serviceMock.Object;
 
-            var record = await _service.Get(PostalCodeId);
+            var record = await _service.GetByPostalCode(PostalCodeZip);
             Assert.Null(record);
         }
     }
