@@ -13,7 +13,7 @@ namespace DDD_Integration_Test.UserEndpoint
 {
     public class TestUserCRUD : BaseIntegration
     {
-        [Fact]
+        [Fact(DisplayName = "Is Possible to realize all CRUD operations from User Endpoint")]
         public async Task IsPossibleUserCRUD()
         {
             await this.AddToken();
